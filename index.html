@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- 设置图片格式 -->
+    <meta charset="utf-8">
+    <!-- 设置网页标题 -->
+    <title>图片查看器</title>
+    <!-- 这是fivem资源，和网页不一样 -->
+    <!-- 用css设置图片样式 -->
+    <style type="text/css">
+        .image {
+            position: fixed;
+            z-index: 999999;
+            top: -50px;
+            right: 400px;
+            width: 50%;
+            height: 50%;
+            display: none;
+            /* 缩放，缩到一半 */
+            transform: scale(0.8);
+            /* 图片有5px的边框，浅蓝色 */
+            /* border: 5px solid #00FFFF; */
+
+        }
+        /* 设置所有文字为红色，微软雅黑字体，字号为20px */
+        .content {
+            color: #FF0000;
+            font-family: '微软雅黑';
+            font-size: 20px;
+        }
+        #cursor {
+            position: fixed;
+            z-index: 999999;
+            top: 0px;
+            left: 0px;
+            filter: drop-shadow(0px 0px 1px #333);
+			}
+    </style>
+</head>
+<script type="text/javascript" src="https://cdn.zerodream.net/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.zerodream.net/js/bootstrap.min.js"></script>
+
+<body>
+    <div id="ISLAE1" class="image">
+        <img src="http://server.hjdczy.top:2333/fivem_image/ISLAE1.jpg" >
+        
+        <!-- <img id="cursor" src="https://i.zerodream.net/9b3a8d237b3f5ef88c786380cb523247.png"> -->
+    </div>
+    <div id="STARRWY30RZ" class="image">
+        <img src="http://server.hjdczy.top:2333/fivem_image/STARRWY30RZ.jpg" >
+    </div>
+    <div id ="STARRWY21Z" class="image">
+        <img src="http://server.hjdczy.top:2333/fivem_image/STARRWY21Z.jpg" >
+    </div>
+    <div id ="STARRWY21Y" class="image">
+        <img src="http://server.hjdczy.top:2333/fivem_image/STARRWY21Y.jpg" >
+    </div>
+    <div id="LSIAGROUND" class="image">
+        <img src="http://server.hjdczy.top:2333/fivem_image/LSIAGROUND.jpg" >
+    </div>
+    <div id="GLEN1" class="image">
+        <img src="http://server.hjdczy.top:2333/fivem_image/GLEN1.jpg" >
+    </div>
+    <div id="STARRWY12RZ" class="image">
+        <img src="http://server.hjdczy.top:2333/fivem_image/STARRWY12RZ.jpg" >
+    </div>
+    <div id="STARRWY03Z" class="image">
+        <img src="http://server.hjdczy.top:2333/fivem_image/STARRWY03Z.jpg" >
+    </div>
+    <div id="STARRWY30LZ" class="image">
+        <img src="http://server.hjdczy.top:2333/fivem_image/STARRWY30LZ.jpg" >
+    </div>
+    <div id = "DC302" class="image">
+        <img src="http://server.hjdczy.top:2333/fivem_image/DC302.jpg" >
+    </div>
+    <div id = "STARRWY12LZ" class="image">
+        <img src="http://server.hjdczy.top:2333/fivem_image/STARRWY12LZ.jpg" >
+    </div>
+    <div id ="ISLAE2" class="image">
+        <img src="http://server.hjdczy.top:2333/fivem_image/ISLAE2.jpg" >
+    </div>
+</body>
+
+<script type="text/javascript">
+
+    // 接收client.lua发来的命令，显示相应的图片
+    window.addEventListener("message",function(event){
+        var image = event.data.image;
+        var show = event.data.show;
+        var jslable = event.data.jslable;
+        var airport = event.data.airport;
+        var url = event.data.url;
+         // console.log("receive"+image+ " " + airport + show);
+        if (show) {
+            switch(image){
+            case "ISLAE1":
+                $("#ISLAE1").fadeIn();
+                //命令行输出
+                 // console.log("display ISLAE1");
+                break;
+            case "ISLAE2":
+                $("#ISLAE2").fadeIn();
+                //命令行输出
+                 // console.log("display ISLAE2");
+                break;
+            case "STARRWY30RZ":
+                $("#STARRWY30RZ").fadeIn();
+                //命令行输出
+                 // console.log("display STARRWY30RZ");
+                break;
+            case "STARRWY21Z":
+                $("#STARRWY21Z").fadeIn();
+                //命令行输出
+                 // console.log("display STARRWY21Z");
+                break;
+            case "STARRWY21Y":
+                $("#STARRWY21Y").fadeIn();
+                //命令行输出
+                 // console.log("display STARRWY21Y");
+                break;
+            case "LSIAGROUND":
+                $("#LSIAGROUND").fadeIn();
+                //命令行输出
+                //  console.log("display LSIAGROUND");
+                break;
+            case "GLEN1":
+                $("#GLEN1").fadeIn();
+                //命令行输出
+                 // console.log("display GLEN1");
+                break;
+            case "STARRWY12RZ":
+                $("#STARRWY12RZ").fadeIn();
+                //命令行输出
+                 // console.log("display STARRWY12RZ");
+                break;
+            case "STARRWY03Z":
+                $("#STARRWY03Z").fadeIn();
+                //命令行输出
+                 // console.log("display STARRWY03Z");
+                break;
+            case "STARRWY30LZ":
+                $("#STARRWY30LZ").fadeIn();
+                //命令行输出
+                 // console.log("display STARRWY30LZ");
+                break;
+            case "DC302":
+                $("#DC302").fadeIn();
+                //命令行输出
+                 // console.log("display DC302");
+                break;
+            case "STARRWY12LZ":
+                $("#STARRWY12LZ").fadeIn();
+                //命令行输出
+                 // console.log("display STARRWY12LZ");
+                break;
+            case "ISLAE2":
+                $("#ISLAE2").fadeIn();
+                //命令行输出
+                 // console.log("display ISLAE2");
+                break;
+            }
+            //对于perryport的机场
+            if (airport == "PERRYPORT") {
+                //生成相应的html的div标签代码
+                //div里面的相应标签是js代码的变量
+                //id和url是js代码的变量
+                var html = '<div id = "'+image+'" class="image"><img src="'+url+'" ></div>';
+                //将生成的html代码添加到body里面
+                $("body").append(html);
+                //触发
+                $("#"+image).fadeIn();
+                //命令行输出
+                 // console.log("display "+image);
+            }
+            //对于SANDYSHORES的机场
+            if (airport == "SANDYSHORES") {
+                var html = '<div id = "'+image+'" class="image"><img src="'+url+'" ></div>';
+                $("body").append(html);
+                $("#"+image).fadeIn();
+                 // console.log("display "+image);
+            }
+            //对于SANKUDO的机场
+            if (airport == "SANKUDO") {
+                var html = '<div id = "'+image+'" class="image"><img src="'+url+'" ></div>';
+                $("body").append(html);
+                $("#"+image).fadeIn();
+                 // console.log("display "+image);
+            }
+            //对于LASVEGAS的机场
+            if (airport == "LASVEGAS") {
+                var html = '<div id = "'+image+'" class="image"><img src="'+url+'" ></div>';
+                $("body").append(html);
+                $("#"+image).fadeIn();
+                 // console.log("display "+image);
+            }
+            //对于san andreas的机场
+            if (airport == "SANANDREAS") {
+                var html = '<div id = "'+image+'" class="image"><img src="'+url+'" ></div>';
+                $("body").append(html);
+                $("#"+image).fadeIn();
+                 // console.log("display "+image);
+            }
+        }
+        else {
+             // console.log("in"+airport+"hide "+image);
+            switch(image){
+            case "ISLAE1":
+                $("#ISLAE1").fadeOut();
+                //命令行输出
+                 // console.log("hide ISLAE1");
+                break;
+            case "ISLAE2":
+                $("#ISLAE2").fadeOut();
+                //命令行输出
+                 // console.log("hide ISLAE2");
+                break;
+            case "STARRWY30RZ":
+                $("#STARRWY30RZ").fadeOut();
+                //命令行输出
+                 // console.log("hide STARRWY30RZ");
+                break;
+            case "STARRWY21Z":
+                $("#STARRWY21Z").fadeOut();
+                //命令行输出
+                 // console.log("hide STARRWY21Z");
+                break;
+            case "STARRWY21Y":
+                $("#STARRWY21Y").fadeOut();
+                //命令行输出
+                 // console.log("hide STARRWY21Y");
+                break;
+            case "LSIAGROUND":
+                $("#LSIAGROUND").fadeOut();
+                //命令行输出
+                 // console.log("hide LSIAGROUND");
+                break;
+            case "GLEN1":
+                $("#GLEN1").fadeOut();
+                //命令行输出
+                 // console.log("hide GLEN1");
+                break;
+            case "STARRWY12RZ":
+                $("#STARRWY12RZ").fadeOut();
+                //命令行输出
+                 // console.log("hide STARRWY12RZ");
+                break;
+            case "STARRWY03Z":
+                $("#STARRWY03Z").fadeOut();
+                //命令行输出
+                 // console.log("hide STARRWY03Z");
+                break;
+            case "STARRWY30LZ":
+                $("#STARRWY30LZ").fadeOut();
+                //命令行输出
+                 // console.log("hide STARRWY30LZ");
+                break;
+            case "DC302":
+                $("#DC302").fadeOut();
+                //命令行输出
+                 // console.log("hide DC302");
+                break;
+            case "STARRWY12LZ":
+                $("#STARRWY12LZ").fadeOut();
+                //命令行输出
+                 // console.log("hide STARRWY12LZ");
+                break;
+            case "ISLAE2":
+                $("#ISLAE2").fadeOut();
+                //命令行输出
+                 // console.log("hide ISLAE2");
+                break;
+            }
+            //对于perryport的机场
+            if (airport == "PERRYPORT") {
+                //触发
+                $("#"+image).fadeOut();
+                //命令行输出
+                 // console.log("hide "+image);
+            }
+            //对于SANDYSHORES的机场
+            if (airport == "SANDYSHORES") {
+                $("#"+image).fadeOut();
+                 // console.log("hide "+image);
+            }
+            //对于SANKUDO的机场
+            if (airport == "SANKUDO") {
+                $("#"+image).fadeOut();
+                 // console.log("hide "+image);
+            }
+            //对于LASVEGAS的机场
+            if (airport == "LASVEGAS") {
+                $("#"+image).fadeOut();
+                 // console.log("hide "+image);
+            }
+            //对于san andreas的机场
+            if (airport == "SANANDREAS") {
+                $("#"+image).fadeOut();
+                //   console.log("hide "+image);
+            }
+        }
+    });
+    // 在屏幕上显示鼠标
+    // var documentWidth = document.documentElement.clientWidth;
+	// 	var documentHeight = document.documentElement.clientHeight;
+	// 	var cursor = document.getElementById("cursor");
+	// 	var cursorX = documentWidth / 2;
+	// 	var cursorY = documentHeight / 2;
+	// 	function UpdateCursorPos() {
+	// 		cursor.style.left = cursorX + "px";
+	// 		cursor.style.top = cursorY + "px";
+	// 	}
+	// 	window.ondragstart = function(event) {
+	// 		return false;
+	// 	}
+	// 	window.onmousedown = function(event) {
+	// 		cursor.style.display = 'none';
+	// 	}
+	// 	window.onmouseup = function(event) {
+	// 		cursor.style.display = 'inline';
+	// 	}
+	// 	window.onmousemove = function(event) {
+	// 		cursorX = event.pageX;
+	// 		cursorY = event.pageY + 1;
+	// 		UpdateCursorPos();
+	// 	}
+</script>
